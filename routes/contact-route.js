@@ -2,6 +2,10 @@ const express = require('express');
 const contactModel = require('../models/contact');
 const app = express();
 
+app.get('/', (req, res) => {
+  res.send('Contact works');
+});
+
 app.post('/contact', async (req, res) => {
     const contact = new contactModel(req.body);
   
