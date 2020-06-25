@@ -14,7 +14,7 @@ app.get('/getcontacts', async (req, res) => {
     res.status(500).send(err);
   }
 });
-app.post('/contact', async (req, res) => {
+app.post('/addcontact', async (req, res) => {
     const contact = new contactModel(req.body);
   
     try {
