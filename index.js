@@ -16,9 +16,9 @@ app.use(bodyParser.json());
 
 app.use(contactRoute);
 
-// app.get('/', (req, res) => {
-//     res.send('Hello World, from express');
-// });
+app.get('/', (req, res) => {
+    res.send('Hello World, from express');
+});
 
 mongoose.connect('mongodb+srv://portfolio_db:b9RkjkY1T1vSN5xI@portfolio-amuvv.mongodb.net/contacts?retryWrites=true&w=majority', {
     useNewUrlParser: true }).then(() => console.log('MongoDB connected...'))
