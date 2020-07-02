@@ -14,12 +14,17 @@ app.get('/getcontacts', async (req, res) => {
     res.status(500).send(err);
   }
 });
+
 app.post('/addcontact', async (req, res) => {
     const contact = new contactModel(req.body);
   
     try {
       await contact.save();
-      res.send(contact);
+      res.send({
+        status: 'success',
+        message: 'Successful',
+        data: contact
+      });
     } catch (err) {
       res.status(500).send(err);
     }
