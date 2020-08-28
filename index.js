@@ -21,9 +21,16 @@ app.get('/', (req, res) => {
 });
 
 mongoose.connect('mongodb+srv://portfolio_db:b9RkjkY1T1vSN5xI@portfolio-amuvv.mongodb.net/contacts?retryWrites=true&w=majority', {
-    useNewUrlParser: true }).then(() => console.log('MongoDB connected...'))
+    useNewUrlParser: true,
+    useUnifiedTopology: true }).then(() => console.log('MongoDB connected...'))
     .catch(err => console.log(err));
 
 
 
-app.listen(port, () => console.log(`Hello world app listening on port ${port}!`));
+const server = app.listen(port, () => console.log(`Hello world app listening on port ${port}!`));
+
+const io = require('socket.io')(server);
+
+io.on('connection', socket => {
+    console.log('new connection');
+});
