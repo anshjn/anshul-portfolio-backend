@@ -29,8 +29,9 @@ mongoose.connect('mongodb+srv://portfolio_db:b9RkjkY1T1vSN5xI@portfolio-amuvv.mo
 
 const server = app.listen(port, () => console.log(`Hello world app listening on port ${port}!`));
 
-const io = require('socket.io')(server);
+exports.io = require('socket.io')(server);
 
 io.on('connection', socket => {
     console.log('new connection');
 });
+
