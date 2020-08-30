@@ -5,6 +5,7 @@ const app = express();
 app.get('/contact', (req, res) => {
   res.send('Contact works');
 });
+
 app.get('/getcontacts', async (req, res) => {
   const contacts = await contactModel.find({});
 
