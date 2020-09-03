@@ -23,8 +23,8 @@ app.use(blogsRoute);
 app.get('/', (req, res) => {
     res.send('Hello World, from express');
 });
-
-    mongoose.connect('mongodb+srv://portfolio_db:b9RkjkY1T1vSN5xI@portfolio-amuvv.mongodb.net/aj?retryWrites=true&w=majority', {
+mongoose.connect('mongodb://localhost:27017/portfolio', {
+    // mongoose.connect('mongodb+srv://portfolio_db:b9RkjkY1T1vSN5xI@portfolio-amuvv.mongodb.net/aj?retryWrites=true&w=majority', {
         useNewUrlParser: true,
         useUnifiedTopology: true })
     .then(() => {
