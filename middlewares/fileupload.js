@@ -1,13 +1,13 @@
 const multer = require('multer');
-const DIR = '../public/';
+
 
 const fileStorage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, '../public')
+        cb(null, './public/blog-uploads')
     },
     filename: (req, file, cb) => {
-        console.log(file.filename);
-        cb(null, '_' + file.filename);
+        console.log('file:', file);
+        cb(null, '_' + file.originalname);
     }
 });
 
@@ -18,6 +18,7 @@ const upload = multer({
         fileSize: 1024 * 1024 * 5
     },
     fileFilter: (req, file, cb) => {
+        console.log('----file:', file);
         if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
             cb(null, true);
         } else {
