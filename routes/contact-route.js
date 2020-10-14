@@ -10,7 +10,7 @@ app.get('/getcontacts', async (req, res) => {
   const contacts = await contactModel.find({});
 
   try {
-    res.send(contacts);
+     res.json(contacts);
   } catch (err) {
     res.status(500).send(err);
   }

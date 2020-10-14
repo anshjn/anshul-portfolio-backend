@@ -1,29 +1,22 @@
 const mongoose = require('mongoose');
 
-const blogsSchema = new mongoose.Schema({
-    date: {
+const experienceSchema = new mongoose.Schema({
+    years: {
         type: String,
         required: true,
         trim: true,
     },
-    title: {
+    company: {
         type: String,
         required: true,
         trim: true,
     },
-    content: {
+    skill: {
         type: String,
         required: true,
         trim: true,
-    },
-    image: {
-        type: String
-    },
-    imagename: {
-        type: String
     }
 });
 
-const blog = mongoose.model('blogs', blogsSchema);
-
-module.exports = blog;
+const experience = mongoose.model('experience', experienceSchema);
+module.exports = experience;

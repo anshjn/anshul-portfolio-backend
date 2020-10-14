@@ -3,10 +3,11 @@ const DIR = '../public/';
 
 const fileStorage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, DIR + 'blogs')
+        cb(null, '../public')
     },
     filename: (req, file, cb) => {
-        cb(null, '_' + file.filename.split(' ').join('_'));
+        console.log(file.filename);
+        cb(null, '_' + file.filename);
     }
 });
 

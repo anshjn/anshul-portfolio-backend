@@ -5,6 +5,11 @@ const app = express();
 const mongoose = require('mongoose');
 const contactRoute = require('./routes/contact-route');
 const blogsRoute = require('./routes/blogs-route');
+const aboutRoute = require('./routes/about-route');
+const skillsRoute = require('./routes/skills-route');
+const educationRoute = require('./routes/education-route');
+const experienceRoute = require('./routes/experience-route');
+
 const port = process.env.PORT || 3000;
 const DIR = "./public/";
 
@@ -17,8 +22,12 @@ app.use(bodyParser.json());
 
 
 app.use(contactRoute);
-
+app.use(aboutRoute);
 app.use(blogsRoute);
+app.use(skillsRoute);
+app.use(experienceRoute);
+app.use(educationRoute);
+app.use('/public', express.static('public'));
 
 app.get('/', (req, res) => {
     res.send('Hello World, from express');
