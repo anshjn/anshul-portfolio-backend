@@ -14,7 +14,7 @@ app.put('/skills', (req, res) => {
         if(!err) {
             res.status(201).json({status:'true', message: 'skills updated', data: data});
         } else {
-            res.send(409).json({status: 'true', message:'Failed! Something went wrong', data: err });
+            res.status(409).json({status: 'true', message:'Failed! Something went wrong', data: err });
         }
     });
     
@@ -26,9 +26,9 @@ app.put('/skills', (req, res) => {
     skills.percentage = req.body.percentage;
     skills.save((err, data) => {
         if(!err) {
-            res.send(201).json({status: 'true', message:'success! Entry saved', data: data });
+            res.status(201).json({status: 'true', message:'success! Entry saved', data: data });
         } else {
-            res.send(409).json({status: 'true', message:'Failed! Something went wrong', data: err });
+            res.status(409).json({status: 'true', message:'Failed! Something went wrong', data: err });
         }
     });
  });

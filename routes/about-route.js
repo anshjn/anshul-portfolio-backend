@@ -11,11 +11,11 @@ app.get('/about', (req, res) => {
 
 app.put('/about', (req, res) => {
     let about = new About();
-    About.findOneAndUpdate({"name": "Anshul"}, {$set:{"text": req.body.text}}, (err, data) => {
+    About.findOneAndUpdate({"name": req.body.name}, {$set:{"text": req.body.text}}, (err, data) => {
         if(!err) {
             res.status(201).json({status:'true', message: 'about updated', data: data});
         } else {
-            res.send(409).json({status: 'true', message:'Failed! Something went wrong', data: err });
+            res.status(409).json({status: 'true', message:'Failed! Something went wrong', data: err });
         }
     });
     
@@ -27,9 +27,9 @@ app.put('/about', (req, res) => {
     about.name = req.body.name;
     about.save((err, data) => {
         if(!err) {
-            res.send(201).json({status: 'true', message:'success! Entry saved', data: data });
+            res.status(201).json({status: 'true', message:'success! Entry saved', data: data });
         } else {
-            res.send(409).json({status: 'true', message:'Failed! Something went wrong', data: err });
+            res.status(409).json({status: 'true', message:'Failed! Something went wrong', data: err });
         }
     });
  });

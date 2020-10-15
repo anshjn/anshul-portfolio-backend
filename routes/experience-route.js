@@ -17,7 +17,7 @@ app.put('/experience', (req, res) => {
         if(!err) {
             res.status(201).json({status:'true', message: 'updation successful!', data: data});
         } else {
-            res.send(409).json({status: 'true', message:'Failed! Something went wrong', data: err });
+            res.status(409).json({status: 'true', message:'Failed! Something went wrong', data: err });
         }
     });
 });
@@ -28,9 +28,9 @@ app.put('/experience', (req, res) => {
     experience.skill = req.body.skill;
     experience.save((err, data) => {
         if(!err) {
-            res.send(201).json({status: 'true', message:'success! Entry saved', data: data });
+            res.status(201).json({status: 'true', message:'success! Entry saved', data: data });
         } else {
-            res.send(409).json({status: 'true', message:'Failed! Something went wrong', data: err });
+            res.status(409).json({status: 'true', message:'Failed! Something went wrong', data: err });
         }
     });
  });
